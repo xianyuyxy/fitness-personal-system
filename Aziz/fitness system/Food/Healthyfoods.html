@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Recipe Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="food.css">
+    <style>
+        :root {
+            --primary-color: #8B5CF6;
+            --secondary-color: #C4B5FD;
+            --bg-color: #F5F3FF;
+            --card-shadow: rgba(139, 92, 246, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .main-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-color);
+            border-right: 1px solid var(--secondary-color);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .category-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(109, 40, 217, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            gap: 10px;
+        }
+
+        .search-bar input {
+            padding: 15px;
+            width: 400px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 30px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+        }
+
+        .search-bar button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            transform: translateY(-2px);
+        }
+
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 12px 25px;
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            cursor: pointer;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+        }
+
+        .category-btn.active {
+            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+            color: white;
+        }
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .recipe-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px var(--card-shadow);
+        }
+
+        .recipe-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .recipe-content {
+            padding: 20px;
+        }
+
+        .recipe-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .recipe-card.tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            color: #4C1D95;
+            font-weight: 500;
+        }
+
+        .recipe-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                box-shadow: none;
+            }
+            .search-bar input {
+                width: 100%;
+                max-width: 300px;
+            }
+            .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+            header {
+                padding: 30px 20px;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+        }
+        .sidebar-top, .sidebar-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .sidebar-divider {
+            height: 1px;
+            background-color: #e2e8f0;
+            margin: 20px 0;
+        }
+
+        .language-switch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        @media (max-width: 768px) {
+            .main-wrapper {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                box-shadow: none;
+            }
+            .main-content {
+                padding: 20px;
+            }
+        }
+        @media (max-width: 768px) {
+            .search-bar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .search-bar input {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 10px;
+            }
+        }
+        @media (max-width: 768px) {
+            .category-filter {
+                justify-content: flex-start;
+                gap: 10px;
+            }
+            .category-btn {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+        @media (max-width: 768px) {
+            .recipe-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .recipe-card h3 {
+                font-size: 1.2em;
+            }
+            .recipe-card.tags {
+                gap: 5px;
+            }
+            .tag {
+                padding: 4px 8px;
+                font-size: 0.7em;
+            }
+            .recipe-stats {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .stat {
+                flex-direction: row;
+                align-items: center;
+                gap: 5px;
+            }
+        }
+        @media (max-width: 768px) {
+            .sidebar-top,.sidebar-bottom {
+                gap: 5px;
+            }
+            .category-sidebar a.category-btn {
+                font-size: 0.9em;
+                padding: 8px 12px;
+            }
+            .sidebar-bottom a.category-btn {
+                font-size: 0.9em;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="main-wrapper">
+    <aside class="sidebar">
+        <div class="sidebar-top">
+            <div class="category-sidebar" id="categorySidebar">
+                <a href="../home/home.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span data-lang='{"en": "Home", "cn": "首页"}'>Home</span>
+                </a>
+                <a href="../workout_plan/plan.html" class="nav-item">
+                    <i class="fas fa-dumbbell"></i>
+                    <span data-lang='{"en": "Workout Plans", "cn": "运动计划"}'>Workout Plans</span>
+                </a>
+                <a href="../community/community.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span data-lang='{"en": "Community", "cn": "社区"}'>Community</span>
+                </a>
+                <a href="../setting/set.html" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span data-lang='{"en": "Settings", "cn": "设置"}'>Settings</span>
+                </a>
+                <a href="../health/health.html" class="nav-item">
+                    <i class="fas fa-heart"></i>
+                    <span data-lang='{"en": "Health", "cn": "健康"}'>Health</span>
+                </a>
+                <a href="../Food/Healthyfoods.html" class="nav-item active">
+                    <i class="fas fa-utensils"></i>
+                    <span data-lang='{"cn": "食谱", "en": "Healthyfoods"}'>食谱</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="sidebar-bottom" style="margin: 200px 0 0 0">
+            <a href="../profile/profile.html" class="nav-item">
+                <i class="fas fa-user-circle"></i>
+                <span data-lang='{"en": "Profile", "cn": "个人中心"}'>Profile</span>
+            </a>
+            <a data-lang='{"en": "EN/中文", "cn": "中文/EN"}'  class="category-btn" id="language-switch-btn">EN/中文</a>
+
+        </div>
+    </aside>
+    <div class="main-content">
+        <header>
+            <h1>Healthy Recipe Collection</h1>
+            <p>Discover nutritious and delicious meals</p>
+        </header>
+
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search recipes...">
+                <button onclick="searchRecipes()">Search</button>
+            </div>
+
+            <div class="category-filter" id="categoryFilter">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="vegetarian">Vegetarian</button>
+                <button class="category-btn" data-category="lowCarb">Low Carb</button>
+                <button class="category-btn" data-category="highProtein">High Protein</button>
+                <button class="category-btn" data-category="breakfast">Breakfast</button>
+            </div>
+
+            <div class="recipe-grid" id="recipeGrid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="audio-container">
+    <audio id="audioPlayer" autoplay loop>
+        <source src="../music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <i class="audio-icon fas fa-music" onclick="toggleAudio()"></i>
+</div>
+<script src="food.js"></script>
+<script src="../../Mouse-click.js"></script>
+</body>
+</html>

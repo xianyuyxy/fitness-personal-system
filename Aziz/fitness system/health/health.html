@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Fitness System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="health.css">
+</head>
+<body>
+<nav class="sidebar">
+  <div class="sidebar-top">
+    <a href="../home/home.html" class="nav-item">
+      <i class="fas fa-home"></i>
+      <span data-lang='{"en": "Home", "cn": "首页"}'>Home</span>
+    </a>
+    <a href="../workout_plan/plan.html" class="nav-item">
+      <i class="fas fa-dumbbell"></i>
+      <span data-lang='{"en": "Workout Plans", "cn": "运动计划"}'>Workout Plans</span>
+    </a>
+    <a href="../community/community.html" class="nav-item">
+      <i class="fas fa-users"></i>
+      <span data-lang='{"en": "Community", "cn": "社区"}'>Community</span>
+    </a>
+    <a href="../setting/set.html" class="nav-item">
+      <i class="fas fa-cog"></i>
+      <span data-lang='{"en": "Settings", "cn": "设置"}'>Settings</span>
+    </a>
+    <a href="../health/health.html" class="nav-item active">
+      <i class="fas fa-heart"></i>
+      <span data-lang='{"en": "Health", "cn": "健康"}'>Health</span>
+    </a>
+    <a href="../Food/Healthyfoods.html" class="nav-item">
+      <i class="fas fa-utensils"></i>
+      <span data-lang='{"cn": "食谱", "en": "Healthyfoods"}'>食谱</span>
+    </a>
+  </div>
+
+  <div class="sidebar-bottom">
+    <div class="sidebar-divider"></div>
+    <a href="../profile/profile.html" class="nav-item">
+      <i class="fas fa-user-circle"></i>
+      <span data-lang='{"en": "Profile", "cn": "个人中心"}'>Profile</span>
+    </a>
+    <div class="language-switch">
+      <i class="fas fa-globe"></i>
+      <span data-lang='{"en": "EN/中文", "cn": "中文/EN"}'>EN/中文</span>
+      <label class="switch">
+        <input type="checkbox" id="languageToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+</nav>
+
+<main class="main-content">
+  <div class="health-banner">
+    <div class="wave"></div>
+    <div class="banner-text" data-lang='{"en": "Make sure to listen to your body while exercising!", "cn": "锻炼莫逞能，健康更重要！"}'>Make sure to listen to your body while exercising!</div>
+  </div>
+
+  <div class="content-grid">
+    <div class="health-status">
+      <h2 class="status-title" data-lang='{"en": "Today Health Monitoring", "cn": "今日健康监测"}'>Today's Health Monitoring</h2>
+      <div class="status-item">
+        <input type="checkbox" class="status-checkbox" id="cold">
+        <label for="cold" data-lang='{"en": "Cold", "cn": "感冒"}'>Cold</label>
+        <div class="status-form" id="cold-form">
+          <p data-lang='{"en": "📋 Things to note: Rest more, drink more water", "cn": "📋 注意事项：多休息，多喝水"}'>📋 Things to note: Rest more, drink more water</p>
+          <p data-lang='{"en": "💡 Suggestion: Take cold medicine, keep the room ventilated", "cn": "💡 建议：吃感冒药，保持房间通风"}'>💡 Suggestion: Take cold medicine, keep the room ventilated</p>
+          <p data-lang='{"en": "💝 Get well soon!", "cn": "💝 祝早日康复！"}'>💝 Get well soon!</p>
+        </div>
+      </div>
+      <div class="status-item">
+        <input type="checkbox" class="status-checkbox" id="fever">
+        <label for="fever" data-lang='{"en": "Fever", "cn": "发烧"}'>Fever</label>
+        <div class="status-form" id="fever-form">
+          <p data-lang='{"en": "📋 Things to note: Monitor temperature changes closely", "cn": "📋 注意事项：密切监测体温变化"}'>📋 Things to note: Monitor temperature changes closely</p>
+          <p data-lang='{"en": "💡 Suggestion: Seek medical attention and rest", "cn": "💡 建议：就医并休息"}'>💡 Suggestion: Seek medical attention and rest</p>
+          <p data-lang='{"en": "💝 Hope you feel better soon!", "cn": "💝 祝你早日康复！"}'>💝 Hope you feel better soon!</p>
+        </div>
+      </div>
+      <div class="status-item">
+        <input type="checkbox" class="status-checkbox" id="injury">
+        <label for="injury" data-lang='{"en": "Injury", "cn": "受伤"}'>Injury</label>
+        <div class="status-form" id="injury-form">
+          <p data-lang='{"en": "📋 Things to note: Monitor the injury site", "cn": "📋 注意事项：观察受伤部位"}'>📋 Things to note: Monitor the injury site</p>
+          <p data-lang='{"en": "💡 Suggestion: Treat the wound promptly, seek medical help if necessary", "cn": "💡 建议：及时处理伤口，必要时寻求医疗帮助"}'>💡 Suggestion: Treat the wound promptly, seek medical help if necessary</p>
+          <p data-lang='{"en": "💝 Take care of yourself!", "cn": "💝 保重身体！"}'>💝 Take care of yourself!</p>
+        </div>
+      </div>
+      <div class="status-item">
+        <input type="checkbox" class="status-checkbox" id="headache">
+        <label for="headache" data-lang='{"en": "Headache", "cn": "头痛"}'>Headache</label>
+        <div class="status-form" id="headache-form">
+          <p data-lang='{"en": "📋 Things to note: Get enough rest, avoid eye strain", "cn": "📋 注意事项：保证足够的休息，避免眼睛疲劳"}'>📋 Things to note: Get enough rest, avoid eye strain</p>
+          <p data-lang='{"en": "💡 Suggestion: Massage your temples and keep the room quiet", "cn": "💡 建议：按摩太阳穴，保持环境安静"}'>💡 Suggestion: Massage your temples and keep the room quiet</p>
+        </div>
+      </div>
+      <div class="status-item">
+        <input type="checkbox" class="status-checkbox" id="fatigue">
+        <label for="fatigue" data-lang='{"en": "Fatigue", "cn": "疲劳"}'>Fatigue</label>
+        <div class="status-form" id="fatigue-form">
+          <p data-lang='{"en": "📋 Things to note: Pay attention to your schedule and sleep quality", "cn": "📋 注意事项：关注作息和睡眠质量"}'>📋 Things to note: Pay attention to your schedule and sleep quality</p>
+          <p data-lang='{"en": "💡 Suggestion: Exercise moderately, maintain a positive attitude", "cn": "💡 建议：适量运动，保持积极态度"}'>💡 Suggestion: Exercise moderately, maintain a positive attitude</p>
+        </div>
+      </div>
+      <div class="status-item">
+        <input type="checkbox" class="status-checkbox" id="appetite">
+        <label for="appetite" data-lang='{"en": "Loss of Appetite", "cn": "食欲不振"}'>Loss of Appetite</label>
+        <div class="status-form" id="appetite-form">
+          <p data-lang='{"en": "📋 Things to note: Maintain a balanced diet, eat smaller, more frequent meals", "cn": "📋 注意事项：保持均衡饮食，少食多餐"}'>📋 Things to note: Maintain a balanced diet, eat smaller, more frequent meals</p>
+          <p data-lang='{"en": "💡 Suggestion: Try light, easily digestible foods", "cn": "💡 建议：尝试清淡易消化的食物"}'>💡 Suggestion: Try light, easily digestible foods</p>
+        </div>
+      </div>
+      <div class="status-item">
+        <input type="checkbox" class="status-checkbox" id="mood">
+        <label for="mood" data-lang='{"en": "Low Mood", "cn": "心情低落"}'>Low Mood</label>
+        <div class="status-form" id="mood-form">
+          <p data-lang='{"en": "📋 Things to note: Stay positive and exercise appropriately", "cn": "📋 注意事项：保持积极心态，适当运动"}'>📋 Things to note: Stay positive and exercise appropriately</p>
+          <p data-lang='{"en": "💡 Suggestion: Listen to music, chat with friends to relax", "cn": "💡 建议：听音乐，与朋友聊天放松"}'>💡 Suggestion: Listen to music, chat with friends to relax</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="period-calendar">
+      <h2 class="status-title" data-lang='{"en": "Menstrual Calendar", "cn": "月经日历"}'>Menstrual Calendar</h2>
+      <div class="calendar-container">
+        <div class="calendar-header">
+          <h3 id="currentMonth" data-lang='{"en": "December 2024", "cn": "2024年12月"}'>December 2024</h3>
+          <div class="calendar-nav">
+            <button id="prevMonth" data-lang='{"en": "◀", "cn": "◀"}'>◀</button>
+            <button id="nextMonth" data-lang='{"en": "▶", "cn": "▶"}'>▶</button>
+          </div>
+        </div>
+        <div class="weekdays">
+          <span data-lang='{"en": "Sun", "cn": "日"}'>Sun</span>
+          <span data-lang='{"en": "Mon", "cn": "一"}'>Mon</span>
+          <span data-lang='{"en": "Tue", "cn": "二"}'>Tue</span>
+          <span data-lang='{"en": "Wed", "cn": "三"}'>Wed</span>
+          <span data-lang='{"en": "Thu", "cn": "四"}'>Thu</span>
+          <span data-lang='{"en": "Fri", "cn": "五"}'>Fri</span>
+          <span data-lang='{"en": "Sat", "cn": "六"}'>Sat</span>
+        </div>
+        <div class="calendar-grid" id="calendar">
+        </div>
+      </div>
+    </div>
+
+    <div class="health-tips" id="healthTips">
+      <div class="wave"></div>
+      <h2 class="status-title" style="color: white;" data-lang='{"en": "Today Health Reminder", "cn": "今日健康提醒"}'>Today's Health Reminder</h2>
+      <p style="font-size: 18px; line-height: 1.6;" data-lang='{"en": "🌡️ Cold outside, please remember to dress warmly and take care of your health.", "cn": "🌡️ 外面很冷，请记得穿暖和些，注意身体健康。"}'>🌡️ It's cold outside, please note: <br>
+        - Add clothing as needed <br>
+        - Keep the room ventilated <br>
+        - Drink warm water frequently</p>
+    </div>
+  </div>
+</main>
+<div class="audio-container">
+  <audio id="audioPlayer" autoplay loop>
+    <source src="../music.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <i class="audio-icon fas fa-music" onclick="toggleAudio()"></i>
+</div>
+</body>
+<script src="health.js"></script>
+<script src="../../Mouse-click.js"></script>
+</html>

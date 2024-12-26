@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Fitness System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="community.css">
+</head>
+<body>
+<nav class="sidebar">
+    <div class="sidebar-top">
+        <a href="../home/home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span data-lang='{"en": "Home", "cn": "首页"}'>Home</span>
+        </a>
+        <a href="../workout_plan/plan.html" class="nav-item">
+            <i class="fas fa-dumbbell"></i>
+            <span data-lang='{"en": "Workout Plans", "cn": "运动计划"}'>Workout Plans</span>
+        </a>
+        <a href="../community/community.html" class="nav-item active">
+            <i class="fas fa-users"></i>
+            <span data-lang='{"en": "Community", "cn": "社区"}'>Community</span>
+        </a>
+        <a href="../setting/set.html" class="nav-item">
+            <i class="fas fa-cog"></i>
+            <span data-lang='{"en": "Settings", "cn": "设置"}'>Settings</span>
+        </a>
+        <a href="../health/health.html" class="nav-item">
+            <i class="fas fa-heart"></i>
+            <span data-lang='{"en": "Health", "cn": "健康"}'>Health</span>
+        </a>
+        <a href="../Food/Healthyfoods.html" class="nav-item">
+            <i class="fas fa-utensils"></i>
+            <span data-lang='{"cn": "食谱", "en": "Healthyfoods"}'>食谱</span>
+        </a>
+    </div>
+
+    <div class="sidebar-bottom">
+        <div class="sidebar-divider"></div>
+        <a href="../profile/profile.html" class="nav-item">
+            <i class="fas fa-user-circle"></i>
+            <span data-lang='{"en": "Profile", "cn": "个人中心"}'>Profile</span>
+        </a>
+        <div class="language-switch">
+            <i class="fas fa-globe"></i>
+            <span data-lang='{"en": "EN/中文", "cn": "中文/EN"}'>EN/中文</span>
+            <label class="switch">
+                <input type="checkbox" id="languageToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+</nav>
+<div class="header">
+    <div class="carousel-images">
+        <img src="image4.jpg" alt="Image 1">
+        <img src="image1.jpg" alt="Image 2">
+        <img src="image2.jpg" alt="Image 3">
+    </div>
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+<div class="container">
+    <div class="comment">
+    </div>
+    <div class="encourage">
+        <img src="growth.jpg">
+    </div>
+</div>
+<div class="audio-container">
+    <audio id="audioPlayer" autoplay loop>
+        <source src="../music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <i class="audio-icon fas fa-music" onclick="toggleAudio()"></i>
+</div>
+</body>
+<script src="community.js"></script>
+<script src="../../Mouse-click.js"></script>
+</html>

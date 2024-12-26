@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Fitness System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+<nav class="sidebar">
+    <!-- for mobile users -->
+    <div class="sidebar-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="sidebar-top">
+        <a href="../home/home.html" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span data-lang='{"en": "Home", "cn": "首页"}'>首页</span>
+        </a>
+        <a href="../workout_plan/plan.html" class="nav-item">
+            <i class="fas fa-dumbbell"></i>
+            <span data-lang='{"en": "Workout Plans", "cn": "运动计划"}'>运动计划</span>
+        </a>
+        <a href="../community/community.html" class="nav-item">
+            <i class="fas fa-users"></i>
+            <span data-lang='{"en": "Community", "cn": "社区"}'>社区</span>
+        </a>
+        <a href="../setting/set.html" class="nav-item">
+            <i class="fas fa-cog"></i>
+            <span data-lang='{"en": "Settings", "cn": "设置"}'>设置</span>
+        </a>
+        <a href="../health/health.html" class="nav-item">
+            <i class="fas fa-heart"></i>
+            <span data-lang='{"en": "Health", "cn": "健康"}'>健康</span>
+        </a>
+        <a href="../Food/Healthyfoods.html" class="nav-item">
+            <i class="fas fa-utensils"></i>
+            <span data-lang='{"cn": "食谱", "en": "Healthyfoods"}'>食谱</span>
+        </a>
+    </div>
+
+    <div class="sidebar-bottom">
+        <div class="sidebar-divider"></div>
+        <a href="../profile/profile.html" class="nav-item">
+            <i class="fas fa-user-circle"></i>
+            <span data-lang='{"en": "Profile", "cn": "个人中心"}'>个人中心</span>
+        </a>
+        <div class="language-switch">
+            <i class="fas fa-globe"></i>
+            <span data-lang='{"en": "EN/中文", "cn": "中文/EN"}'>EN/中文</span>
+            <label class="switch">
+                <input type="checkbox" id="languageToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">SPORT</div>
+            <div class="search-bar">
+                <input type="search" placeholder="搜索健康数据" data-lang='{"en": "Search for health data", "cn": "搜索健康数据"}'>
+                <button class="upgrade-btn" data-lang='{"en": "Upgrade", "cn": "升级"}'>升级</button>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="workout-stats">
+                <div class="video-container">
+                    <video width="640" height="360" controls autoplay loop muted poster="sport.jpg">
+                        <source src="video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="calendar">
+                    <h2 data-lang='{"en": "Calendar", "cn": "日历"}'>日历</h2>
+                    <div class="calendar-grid"></div>
+            </div>
+            <div id="noteModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3 id="modalTitle"></h3>
+                    <textarea id="noteText" rows="4" cols="50"></textarea>
+                    <button id="saveNoteBtn" data-lang='{"en": "Save Note", "cn": "保存"}'>Save Note</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="bottom-section">
+            <div class="steps-card">
+                <h2 data-lang='{"en": "Steps for Today", "cn": "今日步数"}'>今日步数</h2>
+                <div class="chart-container">
+                    <canvas id="stepsChart"></canvas>
+                </div>
+                <div class="input-container">
+                    <input type="number" id="todaySteps" placeholder="请输入今日步数" data-lang='{"en": "Enter today steps", "cn": "请输入今日步数"}'>
+                    <button id="updateButton" data-lang='{"en": "Update Steps", "cn": "更新步数"}' onclick="updateChart()">更新步数</button>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="habits-card">
+                    <h2 data-lang='{"en": "My Habits", "cn": "我的习惯"}'>我的习惯</h2>
+                    <div class="habits-list"></div>
+                    <button id="addHabitBtn" data-lang='{"en": "Add Habit", "cn": "添加习惯"}'>Add Habit</button>
+                </div>
+
+                <div id="habitModal" style="display: none;">
+                    <div class="modal-content">
+                        <h3 id="Title" data-lang='{"en": "Edit Habit", "cn": "编辑习惯"}'>Edit Habit</h3>
+                        <label for="habitName" data-lang='{"en": "Habit Name", "cn": "习惯名称"}'>Habit Name</label>
+                        <input type="text" id="habitName"><div></div>
+                        <label for="habitTrainer" data-lang='{"en": "Trainer", "cn": "教练名称"}'>Trainer</label>
+                        <input type="text" id="habitTrainer"><div></div>
+                        <label for="habitProgress" data-lang='{"en": "Progress", "cn": "当前进度"}'>Progress</label>
+                        <input type="number" id="habitProgress" min="0" max="100"><div></div>
+                        <button id="saveHabitBtn" data-lang='{"en": "Save Habit", "cn": "保存习惯"}'>Save Habit</button>
+                        <button id="closeModalBtn" data-lang='{"en": "Close", "cn": "关闭"}'>Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="audio-container">
+    <audio id="audioPlayer" autoplay loop>
+        <source src="../music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <i class="audio-icon fas fa-music" onclick="toggleAudio()"></i>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="home.js"></script>
+</body>
+</html>

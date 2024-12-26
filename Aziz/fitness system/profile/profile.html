@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Fitness System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+<nav class="sidebar">
+  <div class="sidebar-top">
+    <a href="../home/home.html" class="nav-item">
+      <i class="fas fa-home"></i>
+      <span data-lang='{"en": "Home", "cn": "首页"}'>Home</span>
+    </a>
+    <a href="../workout_plan/plan.html" class="nav-item">
+      <i class="fas fa-dumbbell"></i>
+      <span data-lang='{"en": "Workout Plans", "cn": "运动计划"}'>Workout Plans</span>
+    </a>
+    <a href="../community/community.html" class="nav-item">
+      <i class="fas fa-users"></i>
+      <span data-lang='{"en": "Community", "cn": "社区"}'>Community</span>
+    </a>
+    <a href="../setting/set.html" class="nav-item">
+      <i class="fas fa-cog"></i>
+      <span data-lang='{"en": "Settings", "cn": "设置"}'>Settings</span>
+    </a>
+    <a href="../health/health.html" class="nav-item">
+      <i class="fas fa-heart"></i>
+      <span data-lang='{"en": "Health", "cn": "健康"}'>Health</span>
+    </a>
+    <a href="../Food/Healthyfoods.html" class="nav-item">
+      <i class="fas fa-utensils"></i>
+      <span data-lang='{"cn": "食谱", "en": "Healthyfoods"}'>食谱</span>
+    </a>
+  </div>
+
+  <div class="sidebar-bottom">
+    <div class="sidebar-divider"></div>
+    <a href="../profile/profile.html" class="nav-item active">
+      <i class="fas fa-user-circle"></i>
+      <span data-lang='{"en": "Profile", "cn": "个人中心"}'>Profile</span>
+    </a>
+    <div class="language-switch">
+      <i class="fas fa-globe"></i>
+      <span data-lang='{"en": "EN/中文", "cn": "中文/EN"}'>EN/中文</span>
+      <label class="switch">
+        <input type="checkbox" id="languageToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+</nav>
+
+<div class="shell">
+  <img src="image.jpg" alt="" class="cover">
+  <div class="head">
+    <div class="data">
+      <div class="title1" data-lang='{"en": "Profile", "cn": "个人中心"}'>个人中心</div>
+    <div class="title2" data-lang='{"en": "A humble sports newbie with zero athletic grace", "cn": "一个菜鸟（努力健身版）"}'>A humble sports newbie with zero athletic grace</div>
+  </div>
+</div>
+
+<div class="personal-info">
+  <div class="card">
+    <ul id="personalInfoList">
+      <li class="spe"><strong data-lang='{"en": "Personal Information", "cn": "个人信息"}'>Personal Information</strong></li>
+      <li><strong data-lang='{"en": "Gender:", "cn": "性别："}'>Gender:</strong> 女</li>
+      <li><strong data-lang='{"en": "Height:", "cn": "身高："}'>Height:</strong> 180 cm</li>
+      <li><strong data-lang='{"en": "Weight:", "cn": "体重："}'>Weight:</strong> 75 kg</li>
+      <li><strong data-lang='{"en": "Likes:", "cn": "爱好："}'>Likes:</strong> 跑步、瑜伽、健康饮食</li>
+      <li><strong data-lang='{"en": "About Me:", "cn": "关于我："}'>About Me:</strong> 我正常尝试健身，我相信我终将会成功的！！！</li>
+    </ul>
+
+    <img src="fll.jpg" alt="Profile Image" class="card-image">
+  </div>
+</div>
+<button onclick="openEditModal()" style="margin: 20px" class="edit-btn" data-lang='{"en": "Edit your personal information", "cn": "编辑个人信息"}'>Edit your personal information</button>
+</div>
+
+<!-- 模态框结构 -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 data-lang='{"en": "Edit", "cn": "编辑"}'>Edit</h2>
+    <form id="editForm">
+      <label for="gender" data-lang='{"en": "Gender:", "cn": "性别："}'>gender：</label><input type="text" id="gender" value="Female" /><br>
+      <label for="height" data-lang='{"en": "Height:", "cn": "身高："}'>height：</label><input type="number" id="height" value="180" /><br>
+      <label for="weight" data-lang='{"en": "Weight:", "cn": "体重："}'>weight：</label><input type="number" id="weight" value="75" /><br>
+      <label for="likes" data-lang='{"en": "Likes:", "cn": "爱好："}'>loves：</label><input type="text" id="likes" value="Running, Yoga, Healthy Eating" /><br>
+      <label for="aboutMe" data-lang='{"en": "About Me:", "cn": "关于我："}'>about me：</label><input type="text" id="aboutMe" value="I’m just starting my fitness journey, hoping to get stronger and healthier every day." /><br>
+      <button class="save-btn" type="button" onclick="saveAndUpdateInfo()" data-lang='{"en": "Save", "cn": "保存"}'>Save</button>
+    </form>
+  </div>
+</div>
+
+
+</body>
+<script src="profile.js"></script>
+<script src="../../Mouse-click.js"></script>
+<script>
+  function openEditModal() {
+    document.getElementById('myModal').style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById('myModal').style.display = "none";
+  }
+
+  function saveAndUpdateInfo() {
+    // 获取模态框中输入的新信息
+    let gender = document.getElementById('gender').value;
+    let height = document.getElementById('height').value;
+    let weight = document.getElementById('weight').value;
+    let likes = document.getElementById('likes').value;
+    let aboutMe = document.getElementById('aboutMe').value;
+
+    // 获取原来展示个人信息的列表元素
+    let personalInfoList = document.getElementById('personalInfoList');
+    // 更新列表中的对应文本内容
+    personalInfoList.children[1].innerHTML = "<strong>Gender:</strong> " + gender;
+    personalInfoList.children[2].innerHTML = "<strong>Height:</strong> " + height + " cm";
+    personalInfoList.children[3].innerHTML = "<strong>Weight:</strong> " + weight + " kg";
+    personalInfoList.children[4].innerHTML = "<strong>Likes:</strong> " + likes;
+    personalInfoList.children[5].innerHTML = "<strong>About Me:</strong> " + aboutMe;
+
+    closeModal();
+  }
+</script>
+</html>

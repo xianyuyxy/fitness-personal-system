@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Fitness System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="plan.css">
+</head>
+<body>
+<nav class="sidebar">
+    <div class="sidebar-top">
+        <a href="../home/home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span data-lang='{"en": "Home", "cn": "首页"}'>Home</span>
+        </a>
+        <a href="../workout_plan/plan.html" class="nav-item active">
+            <i class="fas fa-dumbbell"></i>
+            <span data-lang='{"en": "Workout Plans", "cn": "运动计划"}'>Workout Plans</span>
+        </a>
+        <a href="../community/community.html" class="nav-item">
+            <i class="fas fa-users"></i>
+            <span data-lang='{"en": "Community", "cn": "社区"}'>Community</span>
+        </a>
+        <a href="../setting/set.html" class="nav-item">
+            <i class="fas fa-cog"></i>
+            <span data-lang='{"en": "Settings", "cn": "设置"}'>Settings</span>
+        </a>
+        <a href="../health/health.html" class="nav-item">
+            <i class="fas fa-heart"></i>
+            <span data-lang='{"en": "Health", "cn": "健康"}'>Health</span>
+        </a>
+    </div>
+
+    <div class="sidebar-bottom">
+        <div class="sidebar-divider"></div>
+        <a href="../profile/profile.html" class="nav-item">
+            <i class="fas fa-user-circle"></i>
+            <span data-lang='{"en": "Profile", "cn": "个人中心"}'>Profile</span>
+        </a>
+        <div class="language-switch">
+            <i class="fas fa-globe"></i>
+            <span data-lang='{"en": "EN/中文", "cn": "中文/EN"}'>EN/中文</span>
+            <label class="switch">
+                <input type="checkbox" id="languageToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+</nav>
+
+<main class="main-content">
+    <div class="profile-section">
+        <div class="profile-image">
+            <img src="image.jpg" alt="Profile Image">
+        </div>
+        <div class="profile-info">
+            <h2 data-lang='{"en": "My Workout Plans", "cn": "我的锻炼计划"}'>My Workout Plans</h2>
+            <p data-lang='{"en": "I like sports!!!", "cn": "我喜欢运动！！！"}'>I like sports!!!</p>
+        </div>
+    </div>
+
+    <div class="workout-grid">
+        <div class="time-slot"></div>
+        <div class="day-header" data-lang='{"en": "Monday", "cn": "星期一"}'>Monday</div>
+        <div class="day-header" data-lang='{"en": "Tuesday", "cn": "星期二"}'>Tuesday</div>
+        <div class="day-header" data-lang='{"en": "Wednesday", "cn": "星期三"}'>Wednesday</div>
+        <div class="day-header" data-lang='{"en": "Thursday", "cn": "星期四"}'>Thursday</div>
+        <div class="day-header" data-lang='{"en": "Friday", "cn": "星期五"}'>Friday</div>
+        <div class="day-header" data-lang='{"en": "Saturday", "cn": "星期六"}'>Saturday</div>
+        <div class="day-header" data-lang='{"en": "Sunday", "cn": "星期天"}'>Sunday</div>
+
+        <!-- Morning time slot -->
+        <div class="time-slot" data-lang='{"en": "Morning (6:00-8:00)", "cn": "早上 (6:00-8:00)"}'>Morning<br>(6:00-8:00)</div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-running"></i> <span data-lang='{"en": "Morning Run 30 minutes", "cn": "早晨跑步 30分钟"}'>Morning Run 30 minutes</span></div>
+            <div class="workout-item"><i class="fas fa-yoga"></i> <span data-lang='{"en": "Yoga Stretch 15 minutes", "cn": "瑜伽拉伸 15分钟"}'>Yoga Stretch 15 minutes</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-swimming-pool"></i> <span data-lang='{"en": "Swimming 45 minutes", "cn": "游泳 45分钟"}'>Swimming 45 minutes</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-running"></i> <span data-lang='{"en": "Morning Run 30 minutes", "cn": "早晨跑步 30分钟"}'>Morning Run 30 minutes</span></div>
+            <div class="workout-item"><i class="fas fa-yoga"></i> <span data-lang='{"en": "Yoga Stretch 15 minutes", "cn": "瑜伽拉伸 15分钟"}'>Yoga Stretch 15 minutes</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-bicycle"></i> <span data-lang='{"en": "Cycling 40 minutes", "cn": "骑行 40分钟"}'>Cycling 40 minutes</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-running"></i> <span data-lang='{"en": "Morning Run 30 minutes", "cn": "早晨跑步 30分钟"}'>Morning Run 30 minutes</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-hiking"></i> <span data-lang='{"en": "Outdoor Hiking 2 hours", "cn": "户外徒步 2小时"}'>Outdoor Hiking 2 hours</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-heart"></i> <span data-lang='{"en": "Rest Day", "cn": "休息日"}'>Rest Day</span></div>
+        </div>
+
+        <!-- Noon time slot -->
+        <div class="time-slot" data-lang='{"en": "Noon (12:00-14:00)", "cn": "中午 (12:00-14:00)"}'>Noon<br>(12:00-14:00)</div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-dumbbell"></i> <span data-lang='{"en": "Strength Training 45 minutes", "cn": "力量训练 45分钟"}'>Strength Training 45 minutes</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-walking"></i> <span data-lang='{"en": "Walking 15 minutes", "cn": "散步 15分钟"}'>Walking 15 minutes</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-dumbbell"></i> <span data-lang='{"en": "Core Training 30 minutes", "cn": "核心训练 30分钟"}'>Core Training 30 minutes</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-walking"></i> <span data-lang='{"en": "Walking 15 minutes", "cn": "散步 15分钟"}'>Walking 15 minutes</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-dumbbell"></i> <span data-lang='{"en": "Upper Body Training 45 minutes", "cn": "上半身训练 45分钟"}'>Upper Body Training 45 minutes</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-basketball-ball"></i> <span data-lang='{"en": "Basketball 1 hour", "cn": "篮球 1小时"}'>Basketball 1 hour</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-walking"></i> <span data-lang='{"en": "Light Exercise", "cn": "轻度锻炼"}'>Light Exercise</span></div>
+        </div>
+
+        <!-- Evening time slot -->
+        <div class="time-slot" data-lang='{"en": "Evening (18:00-21:00)", "cn": "晚上 (18:00-21:00)"}'>Evening<br>(18:00-21:00)</div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-dumbbell"></i> <span data-lang='{"en": "Lower Body Training 45 minutes", "cn": "下半身训练 45分钟"}'>Lower Body Training 45 minutes</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-skating"></i> <span data-lang='{"en": "Aerobic Exercise 30 minutes", "cn": "有氧运动 30分钟"}'>Aerobic Exercise 30 minutes</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-dumbbell"></i> <span data-lang='{"en": "Full Body Workout 60 minutes", "cn": "全身锻炼 60分钟"}'>Full Body Workout 60 minutes</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-table-tennis"></i> <span data-lang='{"en": "Table Tennis 1 hour", "cn": "乒乓球 1小时"}'>Table Tennis 1 hour</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-dumbbell"></i> <span data-lang='{"en": "Core Training 30 minutes", "cn": "核心训练 30分钟"}'>Core Training 30 minutes</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-swimmer"></i> <span data-lang='{"en": "Relaxing Exercise", "cn": "放松锻炼"}'>Relaxing Exercise</span></div>
+        </div>
+        <div class="workout-cell">
+            <div class="workout-item"><i class="fas fa-heart"></i> <span data-lang='{"en": "Rest Day", "cn": "休息日"}'>Rest Day</span></div>
+        </div>
+    </div>
+</main>
+<div class="audio-container">
+    <audio id="audioPlayer" autoplay loop>
+        <source src="../music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <i class="audio-icon fas fa-music" onclick="toggleAudio()"></i>
+</div>
+</body>
+<script src="plan.js"></script>
+</html>

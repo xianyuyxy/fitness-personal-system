@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('bg.jpg') center center/cover no-repeat fixed;
+}
+
+.container {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    margin-left: 240px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+    }
+}
+
+.form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+            135deg,
+            rgba(230, 230, 250, 0.4) 0%,
+            rgba(152, 255, 152, 0.1) 100%
+    );
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.form.signin {
+    transform: rotateY(0deg);
+}
+
+.form.signup {
+    transform: rotateY(180deg);
+}
+
+h2 {
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input {
+    width: 300px;
+    padding: 15px;
+    margin: 8px 0;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    transition: 0.3s;
+    color: #fff;
+    backdrop-filter: blur(5px);
+}
+
+input::placeholder {
+    color: #ffffff;
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+input:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(230, 230, 250, 0.4);
+}
+
+button {
+    width: 300px;
+    padding: 15px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(
+            120deg,
+            rgba(230, 230, 250, 0.8),
+            rgba(152, 255, 152, 0.4)
+    );
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    backdrop-filter: blur(5px);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: scale(1.03);
+    background: linear-gradient(
+            120deg,
+            rgba(230, 230, 250, 0.9),
+            rgba(152, 255, 152, 0.5)
+    );
+    box-shadow: 0 0 20px rgba(230, 230, 250, 0.4);
+}
+
+.toggle-btn {
+    background: none;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.success-message {
+    color: #98ff98;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+.sidebar-top, .sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: 12px;
+    color: #4a5568;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    background-color: #f8f7fc;
+    color: #a58fda;
+}
+
+.nav-item.active {
+    background-color: #a58fda;
+    color: white;
+}
+
+.nav-item i {
+    width: 24px;
+    margin-right: 12px;
+}
+
+.sidebar-divider {
+    height: 1px;
+    background-color: #e2e8f0;
+    margin: 20px 0;
+}
+
+.language-switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e2e8f0;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #a58fda;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.audio-container {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+}
+
+#audioPlayer {
+    display: none;
+}
+
+.audio-icon {
+    font-size: 25px;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.audio-icon:hover {
+    transform: scale(1.1);
+}
+
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .container {
+        margin-left: 0;
+        width: 90%;
+        max-width: 800px;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        height: auto;
+        min-height: 500px;
+        padding: 20px;
+    }
+
+    input, button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        border-radius: 10px;
+    }
+
+    input, button {
+        padding: 12px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .audio-container {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .audio-icon {
+        font-size: 20px;
+        padding: 8px;
+    }
+}
